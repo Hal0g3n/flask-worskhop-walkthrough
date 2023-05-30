@@ -22,3 +22,7 @@ inputForm.addEventListener('submit', async function(event) {
   conversation.appendChild(message);
   message.scrollIntoView({behavior: "smooth"});
 });
+
+async function generateResponse(input) {
+    return await (await (await fetch('/get?msg=' + input)).json())['bot']
+}
